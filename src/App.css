@@ -1,6 +1,8 @@
 * {
 	margin: 0;
 	padding: 0;
+	overflow: hidden;
+	overflow-x: hidden;
 }
 
 .header {
@@ -22,6 +24,7 @@
 
 input[type="text"] {
 	display: block;
+	box-sizing: border-box;
 	width: 100%;
 	padding: 1rem;
 	margin-bottom: 2rem;
@@ -37,9 +40,10 @@ input[type="text"]::placeholder {
 
 input[type="submit"] {
 	display: block;
+	box-sizing: border-box;
 	color: #fff;
 	font-size: 20px;
-	width: 102.5%;
+	width: 100%;
 	padding: 1rem;
 	border: 1px solid #000; 
 	border-radius: 5px;
@@ -57,6 +61,7 @@ ul {
 
 .item {
 	width: 100%;
+	box-sizing: border-box;
 	border:  1px solid #f4f4f4;
 	padding: 1rem;
 	list-style-type: none;
