@@ -34,14 +34,16 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div>Todos</div>
-        <form onSubmit={this.addTodo}>
-        	<input type="text" onChange={this.handleChange} value={this.state.newTodo} placeholder="new todo..." />
-        	<input type="submit" value="Add Todo"/>
-        </form>
-        <ul>
-        	{this.state.todos.map(todo => <li key={todo.id}>{todo.title}</li>)}
-        </ul>
+        <div className="header">List</div>
+        <div className="container">
+        	<form onSubmit={this.addTodo}>
+        		<input type="text" onChange={this.handleChange} value={this.state.newTodo} placeholder="Enter item here..." />
+        		<input type="submit" value="New Item"/>
+        	</form>
+        	<ul>
+        		{this.state.todos.map(todo => <li className="item" key={todo.id}>{todo.title}</li>)}
+        	</ul>
+        </div>
       </div>
     );
   }
