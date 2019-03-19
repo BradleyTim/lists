@@ -30,6 +30,12 @@ class App extends Component {
 		});
 	}
 
+	delete = (id) => {
+		this.setState({
+			todos: [...this.state.todos.filter(todo => todo.id !== id)]
+		});
+	}
+
 
   render() {
     return (
@@ -41,7 +47,7 @@ class App extends Component {
         		<input type="submit" value="New Item"/>
         	</form>
         	<ul>
-        		{this.state.todos.map(todo => <li className="item" key={todo.id}>{todo.title}</li>)}
+        		{this.state.todos.map(todo => <li className="item" key={todo.id}>{todo.title} <span onClick={() => this.delete(todo.id)}><i class="fas fa-trash-alt"></i></span></li>)}
         	</ul>
         </div>
       </div>
