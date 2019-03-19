@@ -4,16 +4,7 @@ import './App.css';
 class App extends Component {
 	state = {
 		newTodo: '',
-		todos: [
-			{
-				id: 1,
-				title: 'one'
-			},
-			{
-				id: 2,
-				title: 'two'
-			}
-		]
+		todos: []
 	}
 
 	handleChange = e => {
@@ -24,10 +15,16 @@ class App extends Component {
 
 	addTodo = e => {
 		e.preventDefault();
-		this.setState({
+		if(this.state.newTodo.trim() === '') {
+			this.setState({
+				todos: [...this.state.todos]
+			});
+		} else {
+			this.setState({
 			todos: [{id: this.state.todos.length + 1, title: this.state.newTodo}, ...this.state.todos],
 			newTodo: ''
-		});
+			});
+		}
 	}
 
 	delete = (id) => {
@@ -40,7 +37,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div className="header">List</div>
+        <div className="header">Do-List</div>
         <div className="container">
         	<form onSubmit={this.addTodo}>
         		<input type="text" onChange={this.handleChange} value={this.state.newTodo} placeholder="Enter item here..." />
